@@ -1,0 +1,35 @@
+{
+  "workbench.colorTheme": "Dracula Soft",
+  "workbench.colorCustomizations": {
+      "sideBar.background": "#2d049e23",
+      "activityBar.background": "#0e032b79",
+      "editor.background": "#0e0a291c",
+      "editorLineNumber.foreground": "#08c55da6",
+      "editorLineNumber.activeForeground": "#e4d613",
+      "editor.selectionBackground": "#00b7ff86",
+      "editor.selectionForeground": "#ffffff",
+      "panel.background": "#0e0a291c",
+      "panel.border": "#ffffff",
+      "editorBracketHighlight.foreground1": "#e4d613",
+      "editorBracketHighlight.foreground2": "#13d6e4",
+      "editorBracketHighlight.foreground3": "#f08307",
+      "editorBracketHighlight.foreground4": "#53d806",
+      "editorBracketHighlight.foreground5": "#13d6e4",
+      "editorBracketHighlight.foreground6": "#e4d613",
+      "editorBracketHighlight.unexpectedBracket.foreground": "#ff0000",
+  },
+
+  //Autofix on save
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll": true
+  },
+
+  //Enable brackets {} colorization
+  "editor.bracketPairColorization.enabled": true,
+  "explorer.confirmDelete": false,
+
+  "code-runner.clearPreviousOutput": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.tabSize": 2,
+}
