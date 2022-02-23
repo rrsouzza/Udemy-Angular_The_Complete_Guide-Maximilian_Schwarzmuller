@@ -28,6 +28,21 @@
 <!--
   Porém, cada caso tem uma aplicação mais apropriada. property binding permite ter uma dinamização maior entre a propriedade e o valor lógico, enquanto que string interpolation é meramente um valor em texto.
 -->
-<p>{{ serverCreationStatus }}</p>
-<app-server></app-server>
-<app-server></app-server>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<p id="pDestaque" *ngIf="serverCreated; else noServer">Server was created, server name is {{ serverName }}</p>
+<!--
+  ngIf é uma Diretiva Estrutural do Angular que permite adicionar ou remover elementos do DOM. No caso acima, serverCreated é uma propriedade boolean que só é definida como true quando o botão for clicado. De início essa propriedade é false, o que quer dizer que no DOM esse parágrafo não existe até que o botão seja clicado.
+  Isso pode ser observado no DevTools.
+  O id pDestaque foi colocado apenas para formatação do background no css.
+  Diferente de diretivas estruturais como ngIf, diretivas de atributo não adicionam ou removem elementos do DOM, mas apenas os alteram. Por exemplo um ngStyle.
+-->
+<ng-template #noServer>
+  <p id="pDestaque">No server was created!</p>
+</ng-template>
+<!--
+  #noServer servirá como um else para o ngIf declarado acima.
+  O id pDestaque foi colocado apenas para formatação do background no css.
+-->
+
+<app-server *ngFor="let server of servers"></app-server>
+

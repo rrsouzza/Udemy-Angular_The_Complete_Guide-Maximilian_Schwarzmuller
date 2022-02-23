@@ -1,2 +1,15 @@
-<p>{{ 'Server' }} with ID {{ serverID }} is {{ getServerStatus() }}</p>
+<p [ngStyle]="{backgroundColor: getColor()}"
+  [ngClass]="{online: serverStatus === 'online'}">
+  {{ 'Server' }} with ID {{ serverID }} is {{ getServerStatus() }}
+</p>
 <!-- string interpolation --> <!-- é possível inserir funções, porém o retorno deve ser uma string, ou um valor que possa ser convertido para uma string -->
+<!--
+  ngStyle é uma diretiva que permite alterar dinamicamente o estilo de um elemento.
+  Ela trabalha com property-binding, já que o conteúdo a ser alterado deverá ser aplicado à propriedade style do elemento. Por isso ela é declarada com [], resultando em [ngStyle].
+  ngStyle recebe um objeto json, por isso é cercado de {}.
+-->
+<!--
+  ngClass é uma diretiva que permite adicionar ou remover classes de um elemento.
+  No parágrafo acima, a classe online é adicionada baseado na condição de que serverStatus === 'online'. Caso true, a classe online é adicionada. Caso false, é removida.
+  ngClass também recebe um objeto json.
+-->

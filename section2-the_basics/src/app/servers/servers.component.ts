@@ -20,7 +20,9 @@ export class ServersComponent implements OnInit {
   allowNewServer: boolean = false;
   serverCreationStatus: string = 'No server was created!';
   serverName: string = 'Testserver';
+  serverCreated: boolean = false
   // Com two-way-dataBinding definido, ao carregar a página o valor do input atrelado à essa propriedade iniciará com o valor da propriedade.
+  servers: Array<string> = ['Testserver', 'Testserver 2'];
 
   constructor() {
     setTimeout(() => {
@@ -32,7 +34,9 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer(): void {
+    this.serverCreated = true;
     this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
+    this.servers.push(this.serverName);
   }
 
   onUpdateServerName(event: Event): void {
