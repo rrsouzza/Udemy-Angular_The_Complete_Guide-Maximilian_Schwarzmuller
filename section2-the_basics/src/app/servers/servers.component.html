@@ -1,2 +1,33 @@
+<label>Server Name</label>
+<!-- <input type="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)"> -->
+  <!--
+    $event permite passar para um método diversas informações sobre o evento que triggou esse método. Na lógica, podemos usar esse $event para pegar, por exemplo, a propriedade "value" do input que triggou esse método. Assim, podemos mandar o método alterar o valor do serverName e exibí-lo abaixo:
+  -->
+
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="serverName">
+  <!--
+    two-way-dataBinding: é possível combinar event binding e property binding em um só. Dessa forma, o evento (detectado pelo input) altera o valor da propriedade serverName, e o valor da propriedade serverName altera o input. Na lógica, se alterarmos o valor da propriedade em algum lugar, o valor do input também será alterado.
+  -->
+
+<p>{{ serverName }}</p>
+<button
+ class='btn btn-primary'
+ [disabled]="!allowNewServer"
+ (click)="onCreateServer()">Add server</button>
+<!--
+  property binding: disabled é uma propriedade nativa do elemento HTML button, porém [] indica ao Angular uma conexão/binding entre essa propriedade e o boolean passado no ="" . No caso, o button será desabilitado baseado no valor inverso (!) da propriedade allowNewServer.
+-->
+<p [innerText]="allowNewServer"></p>
+<p>{{ allowNewServer }}</p>
+<!-- No caso acima, tanto utilizando string interpolation quanto property binding geram o mesmo resultado. -->
+<!--
+  Porém, cada caso tem uma aplicação mais apropriada. property binding permite ter uma dinamização maior entre a propriedade e o valor lógico, enquanto que string interpolation é meramente um valor em texto.
+-->
+<p>{{ serverCreationStatus }}</p>
 <app-server></app-server>
 <app-server></app-server>
