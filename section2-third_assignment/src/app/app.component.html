@@ -9,11 +9,18 @@
         <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
       </ol>
 
-      <button (click)="changeDisplay()">Display Details</button>
+      <!-- <button class="btn btn-primary" (click)="showSecret = !showSecret">Display Details</button> -->
+      <button class="btn btn-primary" (click)="onToggleDetails()">Display Details</button>
 
-      <p *ngIf="passwordDisplayed">Secret Password = icantbelieveyoufoundthis</p>
+      <p *ngIf="showSecret">Secret Password = icantbelieveyoufoundthis</p>
 
-      <app-log *ngFor="let click of clicks">{{ getLastLog() }}</app-log>
+      <!-- let i = index -> é possível armazenar em uma variável o índice da ocorrência atual de um ngFor. -->
+      <div
+        *ngFor="let logItem of log; let i = index"
+        [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+        [ngClass]="{'white-color' : i >= 4}">
+        {{ logItem }}
+      </div>
 
     </div>
   </div>
