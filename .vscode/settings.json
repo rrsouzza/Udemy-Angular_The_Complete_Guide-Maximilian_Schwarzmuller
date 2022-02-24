@@ -1,14 +1,9 @@
 {
-  "workbench.colorTheme": "Dracula Soft",
+  "workbench.colorTheme": "Visual Studio Dark",
   "workbench.colorCustomizations": {
-      "sideBar.background": "#2d049e23",
-      "activityBar.background": "#0e032b79",
-      "editor.background": "#0e0a291c",
-      "editorLineNumber.foreground": "#08c55da6",
       "editorLineNumber.activeForeground": "#e4d613",
       "editor.selectionBackground": "#00b7ff86",
       "editor.selectionForeground": "#ffffff",
-      "panel.background": "#0e0a291c",
       "panel.border": "#ffffff",
       "editorBracketHighlight.foreground1": "#e4d613",
       "editorBracketHighlight.foreground2": "#13d6e4",

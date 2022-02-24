@@ -13,8 +13,8 @@
 
       <p *ngIf="passwordDisplayed">Secret Password = icantbelieveyoufoundthis</p>
 
-      <!-- UNFINISHED -->
-      <!-- <p *ngFor="let click of clicks"></p> -->
+      <app-log *ngFor="let click of clicks">{{ getLastLog() }}</app-log>
+
     </div>
   </div>
 </div>
