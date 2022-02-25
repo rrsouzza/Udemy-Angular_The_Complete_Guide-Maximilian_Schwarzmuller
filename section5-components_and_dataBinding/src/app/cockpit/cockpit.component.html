@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xs-12">
+    <p>Add new Servers or blueprints!</p>
+    <label>Server Name</label>
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerName"> -->
+    <input
+      type="text"
+      class="form-control"
+      #serverNameInput>
+      <!-- É possível atribuir uma referência local à qualquer elemento HTML. Essa referência existe apenas no escopo do HTML, mas é possível passá-lo para o .ts como um argumento de uma função, por exemplo. -->
+      <!-- Essa referência retorna o elemento HTML por completo, juntamente com todas as suas propriedades. Sendo assim, no caso de um input, podemos passar essa referência como argumento para uma função, e recuperar apenas, por exemplo, o seu conteúdo (input.value) -->
+    <label>Server Content</label>
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent"> -->
+    <input
+      type="text"
+      class="form-control"
+      #serverContentInput>
+    <br>
+    <button
+      class="btn btn-primary"
+      (click)="onAddServer(serverNameInput)">
+      Add Server
+    </button>
+    <button
+      class="btn btn-primary"
+      (click)="onAddBlueprint(serverNameInput)">
+      Add Server Blueprint
+    </button>
+  </div>
+</div>
+
+<!-- (click)="onAddServer()">Add Server -->
+<!-- (click)="onAddBlueprint()">Add Server Blueprint -->
