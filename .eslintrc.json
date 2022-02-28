@@ -10,14 +10,28 @@
     ],
     "rules": {
       "eqeqeq": "error",
-      "no-console": "warn",
+      "no-console": "off",
       "no-undef": "off",
       "no-unused-vars": "off",
-      "prettier/prettier": "error",
+      "prettier/prettier": [
+        "warn",
+        {
+          "printWidth": 160
+        }
+      ],
+      "useTabs": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/no-unused-vars": "warn"
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-empty-function": "off",
+      "@typescript-eslint/quotes": [
+        "error",
+        "single",
+        {
+          "allowTemplateLiterals": true
+        }
+      ]
     },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
