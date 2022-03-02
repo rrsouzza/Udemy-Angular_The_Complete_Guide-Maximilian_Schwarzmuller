@@ -4,6 +4,7 @@ import {
   AfterViewChecked,
   AfterViewInit,
   Component,
+  ContentChild,
   DoCheck,
   ElementRef,
   Input,
@@ -24,6 +25,8 @@ export class ServerElementComponent implements OnInit, OnChanges, DoCheck, After
   // @Input aceita um argumento para definir um alias para a propriedade. No caso acima, 'srvElement' passa a ser o alias por qual a propriedade element será chamado, tornando obrigatório o seu uso. Ou seja, 'element' não será mais reconhecido como uma propriedade em escopos externos à essa classe, tornando obrigatório o uso do alias 'srvElement'.
   @Input() name: string | undefined;
   @ViewChild('heading', { static: true }) header?: ElementRef;
+  @ContentChild('contentParagraph', { static: true }) paragraph?: ElementRef;
+  // ContentChild permite acessar elementos no DOM em componentes "filhos" ao componente principal. 'contentParagraph' foi definido em um parágrafo no html do app.component, mas conseguimos acessar seu conteúdo aqui no server-element.component através do @ContentChild.
 
   constructor() {
     console.log('Constructor called!');
@@ -38,6 +41,7 @@ export class ServerElementComponent implements OnInit, OnChanges, DoCheck, After
   ngOnInit() {
     console.log('ngOnInit called!');
     console.log('Text Content:' + this.header?.nativeElement.textContent);
+    console.log('Text content of paragraph:' + this.paragraph?.nativeElement.textContent);
   }
 
   ngDoCheck(): void {
@@ -46,6 +50,7 @@ export class ServerElementComponent implements OnInit, OnChanges, DoCheck, After
 
   ngAfterContentInit(): void {
     console.log('ngAfterContentInit called!');
+    console.log('Text content of paragraph:' + this.paragraph?.nativeElement.textContent);
   }
 
   ngAfterContentChecked(): void {
