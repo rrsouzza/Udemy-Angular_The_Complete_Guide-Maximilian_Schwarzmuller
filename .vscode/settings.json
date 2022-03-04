@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.colorTheme": "Angular Light Theme",
   "workbench.colorCustomizations": {
       "editorLineNumber.activeForeground": "#e4d613",
       "editor.selectionBackground": "#00b7ff86",
