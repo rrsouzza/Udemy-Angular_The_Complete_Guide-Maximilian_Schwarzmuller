@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Angular Light Theme",
+  "workbench.colorTheme": "Angular Dark Theme",
   "workbench.colorCustomizations": {
       "editorLineNumber.activeForeground": "#e4d613",
       "editor.selectionBackground": "#00b7ff86",
@@ -12,6 +12,10 @@
       "editorBracketHighlight.foreground5": "#13d6e4",
       "editorBracketHighlight.foreground6": "#e4d613",
       "editorBracketHighlight.unexpectedBracket.foreground": "#ff0000",
+  },
+
+  "editor.tokenColorCustomizations": {
+    "comments": "#08e600"
   },
 
   //Autofix on save

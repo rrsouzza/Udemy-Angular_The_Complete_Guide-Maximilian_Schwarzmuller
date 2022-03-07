@@ -4,7 +4,7 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
   selector: '[appUnless]',
 })
 export class UnlessDirective {
-  @Input() set unless(condition: boolean) {
+  @Input() set appUnless(condition: boolean) {
     if (!condition) {
       this.vcRef.createEmbeddedView(this.templateRef);
     } else {
