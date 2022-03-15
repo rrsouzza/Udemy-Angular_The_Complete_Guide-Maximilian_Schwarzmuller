@@ -25,8 +25,4 @@ export class GameControlComponent implements OnInit {
   onPauseGame() {
     clearInterval(this.interval);
   }
-
-  stopClock() {}
-
-  emmitEvent() {}
 }
