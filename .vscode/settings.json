@@ -15,7 +15,7 @@
   },
 
   "editor.tokenColorCustomizations": {
-    "comments": "#ff06ea"
+    "comments": "#06f7ff"
   },
 
   //Autofix on save
