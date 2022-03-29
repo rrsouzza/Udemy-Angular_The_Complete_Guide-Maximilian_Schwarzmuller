@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Data, Params, Router } from '@angular/router';
+import { ActivatedRoute, Data, Router /*, Params */ } from '@angular/router';
 
 import { ServersService } from '../servers.service';
 
