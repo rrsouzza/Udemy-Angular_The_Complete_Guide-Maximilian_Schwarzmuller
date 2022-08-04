@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { NumberValueAccessor } from '@angular/forms';
 import { Subject } from 'rxjs';
 
 import { Ingredient } from '../shared/ingredient.model';
