@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 
@@ -13,14 +14,15 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   recipes!: Recipe[];
   subscription!: Subscription;
 
-  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute, private dataStorageService: DataStorageService) {}
 
   ngOnInit(): void {
     this.subscription = this.recipeService.recipesChanged.subscribe((recipes: Recipe[]) => {
       this.recipes = recipes;
     });
-    this.recipes = this.recipeService.getRecipes();
-    // O array local de receitas utiliza do recipe.service para recuperar o array de receitas.
+    this.dataStorageService.fetchRecipes().subscribe((response) => {
+      this.recipes = response;
+    });
   }
 
   ngOnDestroy(): void {
