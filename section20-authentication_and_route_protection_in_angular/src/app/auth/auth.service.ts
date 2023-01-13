@@ -20,6 +20,7 @@ export class AuthService {
 
   user: BehaviorSubject<User> = new BehaviorSubject<User>(new User('', '', '', new Date()));
   nullUser: User = new User('', '', '', new Date());
+  tokenExpirationTimer!: any;
 
   signup(email: string, password: string) {
     return this.http
@@ -52,23 +53,33 @@ export class AuthService {
   }
 
   autoLogin() {
-    const userData: any = JSON.parse(localStorage.getItem('userData')) || '';
+    const isThereStoredData = localStorage.getItem('userData');
 
+    if (isThereStoredData) {
+      const userData: any = JSON.parse(isThereStoredData) || '';
+      const loadedUser = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpirationDate));
 
-    if (localStorage.hasOwnProperty('userData')) {
-    }
-
-    if (!userData) {
-      return;
+      if (loadedUser.token) {
+        this.user.next(loadedUser);
+        const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
+        this.autoLogout(expirationDuration);
+      }
     } else {
-      userData = JSON.parse(userData);
-      const loadedUser = new User(userData?.email, userData.id?, userData._token?, userData._tokenExpirationDate?)
+      return;
     }
   }
 
   logout() {
     this.user.next(this.nullUser);
     this.router.navigate(['/auth']);
+    clearTimeout(this.tokenExpirationTimer);
+    localStorage.removeItem('userData');
+  }
+
+  autoLogout(expirationDuration: number) {
+    this.tokenExpirationTimer = setTimeout(() => {
+      this.logout();
+    }, expirationDuration);
   }
 
   private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
@@ -76,7 +87,8 @@ export class AuthService {
     const user = new User(email, userId, token, expirationDate);
 
     this.user.next(user);
-    localStorage.setItem('userData1', JSON.stringify(user));
+    this.autoLogout(expiresIn * 1000);
+    localStorage.setItem('userData', JSON.stringify(user));
   }
 
   private handlerError(errorRes: HttpErrorResponse) {
